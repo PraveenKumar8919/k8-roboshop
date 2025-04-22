@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roboshop
+  namespace: roboshop
+  labels:
+    app: backend
+    demo: deployment
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+      demo: deployment
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: backend
+        demo: deployment
+        env: dev
+    spec:
+      containers:
+      - name: mongodb
+        image: praveen538/mongo:v1
