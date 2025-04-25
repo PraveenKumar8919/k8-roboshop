@@ -24,3 +24,19 @@ spec:
       containers:
       - name: mongodb
         image: praveen538/mongo:v1
+
+-----
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+spec:
+  selector:
+    app: backend
+    demo: deployment
+    env: dev 
+  ports:
+  - protocol: TCP
+    port: 27017 #service port
+    targetPort: 27017 #container port
