@@ -4,7 +4,7 @@ metadata:
   name: catalogue
   namespace: roboshop
 data:
-  MONGO: true
+  MONGO: "true"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,7 +35,7 @@ spec:
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
-          name: catalogue
+            name: catalogue
 ---
 apiVersion: v1
 kind: Service
