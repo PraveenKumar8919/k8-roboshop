@@ -33,3 +33,21 @@ spec:
       - name: catalogue
         image: praveen538/mongo:v1
         imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+          name: catalogue
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue
+  namespace: roboshop
+spec:
+  selector:
+    app: catalogue
+    demo: deployment
+    env: dev 
+  ports:
+  - protocol: TCP
+    port: 8080 #service port
+    targetPort: 8080 #container port
