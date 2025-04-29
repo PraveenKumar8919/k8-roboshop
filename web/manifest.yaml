@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: roboshop
+  labels:
+    app: web
+    demo: deployment
+    env: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+      demo: deployment
+      env: web
+  template:
+    metadata:
+      labels:
+        app: web
+        demo: deployment
+        env: web
+    spec:
+      containers:
+      - name: mongodb
+        image: praveen538/web:v1
+        imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: roboshop
+spec:
+  type: LoadBalancer
+  selector:
+    app: web
+    demo: deployment
+    env: web
+  ports:
+  - protocol: TCP
+    port: 80 #service port
+    targetPort: 80 #container port

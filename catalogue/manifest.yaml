@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: praveen538/mongo:v1
+        image: praveen538/catalogue:v1
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
