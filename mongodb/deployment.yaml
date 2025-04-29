@@ -25,7 +25,7 @@ spec:
       - name: mongodb
         image: praveen538/mongo:v1
 
------
+---
 apiVersion: v1
 kind: Service
 metadata:
