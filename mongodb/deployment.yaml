@@ -4,26 +4,27 @@ metadata:
   name: roboshop
   namespace: roboshop
   labels:
-    app: backend
+    app: mongodb
     demo: deployment
     env: dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: mongodb
       demo: deployment
       env: dev
   template:
     metadata:
       labels:
-        app: backend
+        app: mongodb
         demo: deployment
         env: dev
     spec:
       containers:
       - name: mongodb
         image: praveen538/mongo:v1
+        imagePullPolicy: Always
 
 ---
 apiVersion: v1
@@ -33,7 +34,7 @@ metadata:
   namespace: roboshop
 spec:
   selector:
-    app: backend
+    app: mongodb
     demo: deployment
     env: dev 
   ports:
