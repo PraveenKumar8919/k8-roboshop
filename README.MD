@@ -20,12 +20,16 @@ Use port-forwarding to access the ArgoCD server:
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-You can now access the ArgoCD UI at `https://localhost:8080`.  
+You can now access the ArgoCD UI at `https://localhost:8080`.
 
-## Step 3: Access the ArgoCD Server
-Use port-forwarding to access the ArgoCD server:
+Alternatively, to allow external access, use the following command:
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443 --address 0.0.0.0
 ```
 
-You can now access the ArgoCD UI at `ec2-intance:port`.
+You can now access the ArgoCD UI at `ec2-instance:8080`.
+
+## ArgoCD UI Screenshot
+Below is an example of the ArgoCD UI:
+
+![ArgoCD UI](./argocd.png)
