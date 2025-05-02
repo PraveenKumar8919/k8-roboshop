@@ -1,0 +1,8 @@
+{{- range .Values.manifests }}
+# Deploying manifests from {{ .path }}
+{{- $files := (.Files.Glob (printf "%s/*.yaml" .path)) }}
+{{- range $files }}
+---
+{{ .AsConfig | nindent 2 }}
+{{- end }}
+{{- end }}

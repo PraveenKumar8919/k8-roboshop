@@ -1,0 +1,12 @@
+manifests:
+  - path: web
+  - path: catalogue
+  - path: user
+  - path: cart
+  - path: shipping
+  - path: payment
+  - path: mysql
+  - path: mongodb
+  - path: redis
+  - path: rabbitmq
+  # Add paths for all the folders containing Kubernetes manifests
